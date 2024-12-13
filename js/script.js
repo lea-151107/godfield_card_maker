@@ -1,4 +1,5 @@
 //表示
+const img_ = document.getElementById("img_");
 const bName_ = document.getElementById("bName_");
 const sName_ = document.getElementById("sName_");
 const bLore_ = document.getElementById("bLore_");
@@ -10,7 +11,10 @@ const mana_ = document.getElementById("mana_");
 const cost_ = document.getElementsByClassName("cost_");
 
 //画像
-const fileInput = document.getElementById("images");
+const imageInput = document.getElementById("images");
+//cropper
+const image = document.getElementById('image');
+const cropButton = document.getElementById('cropButton');
 
 //入力欄
 const name = document.getElementById("name");
@@ -46,52 +50,67 @@ function escape_html(string) {
       '"': "&quot;",
       "<": "&lt;",
       ">": "&gt;",
-    } [match]
+    }[match]
   });
 }
 
 function chAll() {
   setTimeout(() => {
     var node = document.getElementById("imgs");
-  var mainEl = document.getElementById("main_");
+    var mainEl = document.getElementById("main_");
 
-  domtoimage
-    .toPng(mainEl)
-    .then(function (URL) {
-      var newImg = new Image();
-      newImg.src = URL;
-    while (node.firstChild) {
-      node.removeChild(node.firstChild);
-    }
-      node.appendChild(newImg);
-    })
-    .catch(function (error) {
-      console.error("error");
-    });
+    domtoimage
+      .toPng(mainEl)
+      .then(function (URL) {
+        var newImg = new Image();
+        newImg.src = URL;
+        while (node.firstChild) {
+          node.removeChild(node.firstChild);
+        }
+        node.appendChild(newImg);
+      })
+      .catch(function (error) {
+        console.error("error");
+      });
   }, 100);
 }
 
-//画像
-function preImg(file) {
-  const preview = document.getElementById("img_");
-  const reader = new FileReader();
+let cropper;
 
-  reader.onload = function (e) {
-    const imageUrl = e.target.result;
-    preview.style.backgroundImage = `url(${imageUrl})`;
+imageInput.addEventListener('change', (event) => {
+  const file = event.target.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      image.src = e.target.result;
+      image.style.display = 'block';
+
+      // インスタンスがある場合は破棄
+      if (cropper) {
+        cropper.destroy();
+      }
+      cropper = new Cropper(image, {
+        aspectRatio: 1,
+        viewMode: 1,
+      });
+    };
+
+    reader.readAsDataURL(file);
   }
-  reader.readAsDataURL(file);
-}
+});
 
-const chImg = () => {
-  const files = fileInput.files;
-  for (let i = 0; i < files.length; i++) {
-    preImg(files[i]);
+// トリミングボタン
+cropButton.addEventListener('click', () => {
+  if (cropper) {
+    const canvas = cropper.getCroppedCanvas();
+    const croppedDataUrl = canvas.toDataURL('image/png');
+
+    img_.style.backgroundImage = `url(${croppedDataUrl})`;
     chAll();
   }
-}
-
-fileInput.addEventListener("change", chImg);
+});
 
 //雑貨化
 function chSLore() {
