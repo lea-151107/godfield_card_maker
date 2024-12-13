@@ -18,6 +18,7 @@ const cropButton = document.getElementById('cropButton');
 
 //入力欄
 const name = document.getElementById("name");
+const pLore = document.getElementById("pLore");
 const lore = document.getElementById("lore");
 const subLore = document.getElementById("subLore");
 const sLore = document.getElementById("sLore");
@@ -123,6 +124,7 @@ function chSLore() {
     bName_.style.display = "none";
     sName_.style.display = "";
     elImg_.style.display = "none";
+    pLore.innerHTML = "説明(正確な描画は全角10文字まで)";
     lore.placeholder = "説明(\\nで改行)";
     Array.from(elements).forEach(function (e) {
       e.disabled = true;
@@ -136,6 +138,7 @@ function chSLore() {
     sName_.style.display = "none";
     bName_.style.display = "";
     elImg_.style.display = "";
+    pLore.innerHTML = "説明(正確な描画は全角6文字まで)";
     lore.placeholder = "説明";
     Array.from(elements).forEach(function (e) {
       e.disabled = false;
