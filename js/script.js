@@ -124,7 +124,7 @@ function chSLore() {
     bName_.style.display = "none";
     sName_.style.display = "";
     elImg_.style.display = "none";
-    pLore.innerHTML = "説明(正確な描画は全角10文字まで)";
+    pLore.innerHTML = "説明(正確な描画は一行全角10文字まで)";
     lore.placeholder = "説明(\\nで改行)";
     Array.from(elements).forEach(function (e) {
       e.disabled = true;
