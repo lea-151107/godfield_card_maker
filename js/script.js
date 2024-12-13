@@ -26,6 +26,7 @@ const costs = document.getElementById("costs");
 //コスト
 const money = document.getElementById("money");
 const mana = document.getElementById("mana");
+const non = document.getElementById("none");
 
 //属性
 const noEl = document.getElementById("none");
@@ -188,6 +189,9 @@ function chCost() {
   } else if (mana.checked) {
     money_.style.display = "none";
     mana_.style.display = "";
+  } else if (non.checked) {
+    money_.style.display = "none";
+    mana_.style.display = "none";
   }
   chAll();
 }
