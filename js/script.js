@@ -139,7 +139,7 @@ function chSLore() {
     bName_.style.display = "";
     elImg_.style.display = "";
     pLore.innerHTML = "説明(正確な描画は全角6文字まで)";
-    lore.placeholder = "説明";
+    lore.placeholder = "説明(守5, 75%攻5など)";
     Array.from(elements).forEach(function (e) {
       e.disabled = false;
     });
