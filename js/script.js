@@ -130,23 +130,23 @@ function chSLore() {
     elImg_.style.display = "none";
     pLore.innerHTML = "説明(正確な描画は一行全角10文字まで)";
     lore.placeholder = "説明(\\nで改行)";
-    Array.from(elements).forEach(function (e) {
-      e.disabled = true;
-    });
+    // Array.from(elements).forEach(function (e) {
+    //   e.disabled = true;
+    // });
 
   } else {
     subLore.disabled = false;
-    sLore_.style.display = "none";
     subLore_.style.display = "";
     bLore_.style.display = "";
-    sName_.style.display = "none";
+    sLore_.style.display = "none";
     bName_.style.display = "";
+    sName_.style.display = "none";
     elImg_.style.display = "";
     pLore.innerHTML = "説明(正確な描画は全角6文字まで)";
     lore.placeholder = "説明(守5, 75%攻5など)";
-    Array.from(elements).forEach(function (e) {
-      e.disabled = false;
-    });
+    // Array.from(elements).forEach(function (e) {
+    //   e.disabled = false;
+    // });
   }
   chAll();
 }
@@ -208,7 +208,9 @@ var elImg = "light";
 var fColor = "79, 79, 79";
 
 function chEl() {
-  elImg_.style.display = "";
+  if (!sLore.checked) {
+    elImg_.style.display = "";
+  }
   switch (true) {
     case none.checked:
       elImg = "none"
@@ -259,6 +261,8 @@ function chEl() {
   elImg_.style.backgroundImage = `url(./images/${elImg}.png)`;
   bName_.style.color = `rgb(${fColor})`;
   bLore_.style.color = `rgb(${fColor})`;
+  sName_.style.color = `rgb(${fColor})`;
+  sLore_.style.color = `rgb(${fColor})`;
   subLore_.style.color = `rgb(${fColor})`;
   chAll();
 }
