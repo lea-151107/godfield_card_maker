@@ -37,6 +37,10 @@ const wood = document.getElementById("wood");
 const stone = document.getElementById("stone");
 const light = document.getElementById("light");
 const darkness = document.getElementById("darkness");
+const neptune = document.getElementById("neptune");
+const venus = document.getElementById("venus");
+const earth = document.getElementById("earth");
+const moon = document.getElementById("moon");
 const elements = document.getElementsByClassName("elements");
 
 //エスケープ
@@ -234,12 +238,28 @@ function chEl() {
       elImg = "darkness";
       fColor = "170, 85, 204";
       break;
+    case neptune.checked:
+      elImg = "none";
+      fColor = "0, 170, 238";
+      break;
+    case venus.checked:
+      elImg = "none";
+      fColor = "0, 136, 0";
+      break;
+    case earth.checked:
+      elImg = "none";
+      fColor = "238, 170, 170";
+      break;
+    case moon.checked:
+      elImg = "none";
+      fColor = "187, 187, 119";
+      break;
   }
+
   elImg_.style.backgroundImage = `url(./images/${elImg}.png)`;
   bName_.style.color = `rgb(${fColor})`;
   bLore_.style.color = `rgb(${fColor})`;
   subLore_.style.color = `rgb(${fColor})`;
-  console.log(bName_.style.color);
   chAll();
 }
 
