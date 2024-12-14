@@ -90,210 +90,210 @@
   </div>
 
   <!--真ん中の画像-->
-  <div id="imgs"
-    style="margin: 0px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%);">
-  </div>
 
-  <!--選択欄-->
-  <div
-    style="display: flex; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%);">
+  <div style="display: flex; justify-content: center; flex-flow: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%);">
+    <div id="imgs" style=" text-align: center; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden;"></div>
 
-    <!--画像-->
-    <div style="display: block; margin: 0 10px; min-width: 240px; max-width: 240px;">
-      <p style="margin: 0; padding: 0; font-size: 15px;">
-        画像の選択<br>
-        (本家は80px × 80pxです)
-      </p>
-      <form action="" method="post" enctype="multipart/form-data">
-        <input type="file" id="images" name="images" accept="image/*">
-      </form>
+    <!--選択欄-->
+    <div
+      style="display: flex; justify-content: center;">
 
-      <!-- トリミング -->
-      <div style="min-width: 240px; max-width: 240px; min-height: 100px; max-height: 100px;">
-        <img id="image" style="max-width: 100%; display: none;">
-      </div>
-      <button id="cropButton">確定</button>
-    </div>
+      <!--画像-->
+      <div style="display: block; margin: 0 10px; min-width: 240px; max-width: 240px;">
+        <p style="margin: 0; padding: 0; font-size: 15px;">
+          画像の選択<br>
+          (本家は80px × 80pxです)
+        </p>
+        <form action="" method="post" enctype="multipart/form-data">
+          <input type="file" id="images" name="images" accept="image/*">
+        </form>
 
-    <!--入力欄-->
-    <div style="display: block; margin: 0 10px; min-width: 260px; max-width: 260px;">
-      <p style="margin: 4px 0 0 0; font-size: 14px;">名前(正確な描画は全角9文字まで)</p>
-      <input type="text" id="name" name="name" placeholder="名前"><br>
-      <p style="margin: 4px 0 0 0; font-size: 14px;" id="pLore">説明(正確な描画は全角6文字まで)</p>
-      <input type="text" id="lore" name="lore" placeholder="説明(守5, 75%攻5など)"><br>
-      <p style="margin: 4px 0 0 0; font-size: 14px;">名前(正確な描画は全角9~10文字まで)</p>
-      <input type="text" id="subLore" name="subLore" placeholder="サブ説明"><br>
-      <input type="checkbox" id="sLore" name="sLore" value="sLore" onclick="chSLore()">
-      <label for="sLore">特殊効果のみ</label><br>
-    </div>
-
-    <!--コスト-->
-    <div style="display: block; margin: 0 10px;">
-
-      <div style="display: flex;">
-        <input type="radio" id="money" name="cost" value="money" onclick="chCost()" checked>
-        <label for="money" style="color: rgb(221, 221, 136);">
-          Money
-        </label>
+        <!-- トリミング -->
+        <div style="min-width: 240px; max-width: 240px; min-height: 100px; max-height: 100px;">
+          <img id="image" style="max-width: 100%; display: none;">
+        </div>
+        <button id="cropButton">確定</button>
       </div>
 
-      <div style="display: flex;">
-        <input type="radio" id="mana" name="cost" value="mana" onclick="chCost()">
-        <label for="mana" style="color: rgb(119, 119, 255);">
-          Mana
-        </label>
+      <!--入力欄-->
+      <div style="display: block; margin: 0 10px; min-width: 260px; max-width: 260px;">
+        <p style="margin: 4px 0 0 0; font-size: 14px;">名前(正確な描画は全角9文字まで)</p>
+        <input type="text" id="name" name="name" placeholder="名前"><br>
+        <p style="margin: 4px 0 0 0; font-size: 14px;" id="pLore">説明(正確な描画は全角6文字まで)</p>
+        <input type="text" id="lore" name="lore" placeholder="説明(守5, 75%攻5など)"><br>
+        <p style="margin: 4px 0 0 0; font-size: 14px;">名前(正確な描画は全角9~10文字まで)</p>
+        <input type="text" id="subLore" name="subLore" placeholder="サブ説明"><br>
+        <input type="checkbox" id="sLore" name="sLore" value="sLore" onclick="chSLore()">
+        <label for="sLore">特殊効果のみ</label><br>
       </div>
 
-      <div style="display: flex;">
-        <input type="radio" id="none" name="cost" value="none" onclick="chCost()">
-        <label for="none" style="color: rgb(170, 170, 170);">
-          None
-        </label>
-      </div>
-      
-      <input type="number" id="costs" name="costs" placeholder="コスト" min="1" max="99"
-        oninput="javascript: this.value = this.value.slice(0, 2); if (this.value <= 0) {this.value = 1}" value="1">
+      <!--コスト-->
+      <div style="display: block; margin: 0 10px;">
 
-    </div>
+        <div style="display: flex;">
+          <input type="radio" id="money" name="cost" value="money" onclick="chCost()" checked>
+          <label for="money" style="color: rgb(221, 221, 136);">
+            Money
+          </label>
+        </div>
 
-    <!--属性-->
-    <div style="display: block; margin: 0 10px;">
+        <div style="display: flex;">
+          <input type="radio" id="mana" name="cost" value="mana" onclick="chCost()">
+          <label for="mana" style="color: rgb(119, 119, 255);">
+            Mana
+          </label>
+        </div>
 
-      <div style="display: flex;">
-        <input type="radio" class="elements" id="none" name="elements" value="none" onclick="chEl()" checked>
-        <label for="none">
-          <div style="display: flex;">
-            <div
-              style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-repeat: no-repeat; background-size: contain;">
-            </div>
+        <div style="display: flex;">
+          <input type="radio" id="none" name="cost" value="none" onclick="chCost()">
+          <label for="none" style="color: rgb(170, 170, 170);">
             None
-          </div>
-        </label>
+          </label>
+        </div>
+
+        <input type="number" id="costs" name="costs" placeholder="コスト" min="1" max="99"
+          oninput="javascript: this.value = this.value.slice(0, 2); if (this.value <= 0) {this.value = 1}" value="1">
+
       </div>
 
-      <div style="display: flex;">
-        <input type="radio" class="elements" id="fire" name="elements" value="fire" onclick="chEl()">
-        <label for="fire">
-          <div style="display: flex;">
-            <div
-              style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/fire.png); background-repeat: no-repeat; background-size: contain;">
+      <!--属性-->
+      <div style="display: block; margin: 0 10px;">
+
+        <div style="display: flex;">
+          <input type="radio" class="elements" id="none" name="elements" value="none" onclick="chEl()" checked>
+          <label for="none">
+            <div style="display: flex;">
+              <div
+                style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-repeat: no-repeat; background-size: contain;">
+              </div>
+              None
             </div>
-            Fire
-          </div>
-        </label>
-      </div>
+          </label>
+        </div>
 
-      <div style="display: flex;">
-        <input type="radio" class="elements" id="water" name="elements" value="water" onclick="chEl()">
-        <label for="water">
-          <div style="display: flex;">
-            <div
-              style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/water.png); background-repeat: no-repeat; background-size: contain;">
+        <div style="display: flex;">
+          <input type="radio" class="elements" id="fire" name="elements" value="fire" onclick="chEl()">
+          <label for="fire">
+            <div style="display: flex;">
+              <div
+                style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/fire.png); background-repeat: no-repeat; background-size: contain;">
+              </div>
+              Fire
             </div>
-            Water
-          </div>
-        </label>
-      </div>
+          </label>
+        </div>
 
-      <div style="display: flex;">
-        <input type="radio" class="elements" id="wood" name="elements" value="wood" onclick="chEl()">
-        <label for="wood">
-          <div style="display: flex;">
-            <div
-              style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/wood.png); background-repeat: no-repeat; background-size: contain;">
+        <div style="display: flex;">
+          <input type="radio" class="elements" id="water" name="elements" value="water" onclick="chEl()">
+          <label for="water">
+            <div style="display: flex;">
+              <div
+                style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/water.png); background-repeat: no-repeat; background-size: contain;">
+              </div>
+              Water
             </div>
-            Wood
-          </div>
-        </label>
-      </div>
+          </label>
+        </div>
 
-      <div style="display: flex;">
-        <input type="radio" class="elements" id="stone" name="elements" value="stone" onclick="chEl()">
-        <label for="stone">
-          <div style="display: flex;">
-            <div
-              style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/stone.png); background-repeat: no-repeat; background-size: contain;">
+        <div style="display: flex;">
+          <input type="radio" class="elements" id="wood" name="elements" value="wood" onclick="chEl()">
+          <label for="wood">
+            <div style="display: flex;">
+              <div
+                style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/wood.png); background-repeat: no-repeat; background-size: contain;">
+              </div>
+              Wood
             </div>
-            Stone
-          </div>
-        </label>
-      </div>
+          </label>
+        </div>
 
-      <div style="display: flex;">
-        <input type="radio" class="elements" id="light" name="elements" value="light" onclick="chEl()">
-        <label for="light">
-          <div style="display: flex;">
-            <div
-              style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/light.png); background-repeat: no-repeat; background-size: contain;">
+        <div style="display: flex;">
+          <input type="radio" class="elements" id="stone" name="elements" value="stone" onclick="chEl()">
+          <label for="stone">
+            <div style="display: flex;">
+              <div
+                style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/stone.png); background-repeat: no-repeat; background-size: contain;">
+              </div>
+              Stone
             </div>
-            Light
-          </div>
-        </label>
-      </div>
+          </label>
+        </div>
 
-      <div style="display: flex;">
-        <input type="radio" class="elements" id="darkness" name="elements" value="darkness" onclick="chEl()">
-        <label for="darkness">
-          <div style="display: flex;">
-            <div
-              style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/darkness.png); background-repeat: no-repeat; background-size: contain;">
+        <div style="display: flex;">
+          <input type="radio" class="elements" id="light" name="elements" value="light" onclick="chEl()">
+          <label for="light">
+            <div style="display: flex;">
+              <div
+                style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/light.png); background-repeat: no-repeat; background-size: contain;">
+              </div>
+              Light
             </div>
-            darkness
-          </div>
-        </label>
-      </div>
+          </label>
+        </div>
 
-      <div style="display: flex;">
-        <input type="radio" class="elements" id="neptune" name="elements" value="neptune" onclick="chEl()">
-        <label for="neptune">
-          <div style="display: flex;">
-            <div
-              style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/none.png); background-repeat: no-repeat; background-size: contain;">
+        <div style="display: flex;">
+          <input type="radio" class="elements" id="darkness" name="elements" value="darkness" onclick="chEl()">
+          <label for="darkness">
+            <div style="display: flex;">
+              <div
+                style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/darkness.png); background-repeat: no-repeat; background-size: contain;">
+              </div>
+              darkness
             </div>
-            neptune
-          </div>
-        </label>
-      </div>
+          </label>
+        </div>
 
-      <div style="display: flex;">
-        <input type="radio" class="elements" id="venus" name="elements" value="venus" onclick="chEl()">
-        <label for="venus">
-          <div style="display: flex;">
-            <div
-              style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/none.png); background-repeat: no-repeat; background-size: contain;">
+        <div style="display: flex;">
+          <input type="radio" class="elements" id="neptune" name="elements" value="neptune" onclick="chEl()">
+          <label for="neptune">
+            <div style="display: flex;">
+              <div
+                style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/none.png); background-repeat: no-repeat; background-size: contain;">
+              </div>
+              neptune
             </div>
-            venus
-          </div>
-        </label>
-      </div>
+          </label>
+        </div>
 
-      <div style="display: flex;">
-        <input type="radio" class="elements" id="earth" name="elements" value="earth" onclick="chEl()">
-        <label for="earth">
-          <div style="display: flex;">
-            <div
-              style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/none.png); background-repeat: no-repeat; background-size: contain;">
+        <div style="display: flex;">
+          <input type="radio" class="elements" id="venus" name="elements" value="venus" onclick="chEl()">
+          <label for="venus">
+            <div style="display: flex;">
+              <div
+                style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/none.png); background-repeat: no-repeat; background-size: contain;">
+              </div>
+              venus
             </div>
-            earth
-          </div>
-        </label>
-      </div>
+          </label>
+        </div>
 
-      <div style="display: flex;">
-        <input type="radio" class="elements" id="moon" name="elements" value="moon" onclick="chEl()">
-        <label for="moon">
-          <div style="display: flex;">
-            <div
-              style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/none.png); background-repeat: no-repeat; background-size: contain;">
+        <div style="display: flex;">
+          <input type="radio" class="elements" id="earth" name="elements" value="earth" onclick="chEl()">
+          <label for="earth">
+            <div style="display: flex;">
+              <div
+                style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/none.png); background-repeat: no-repeat; background-size: contain;">
+              </div>
+              earth
             </div>
-            moon
-          </div>
-        </label>
-      </div>
+          </label>
+        </div>
 
+        <div style="display: flex;">
+          <input type="radio" class="elements" id="moon" name="elements" value="moon" onclick="chEl()">
+          <label for="moon">
+            <div style="display: flex;">
+              <div
+                style="margin: 0 3px; padding: 0px; outline: 0px; box-sizing: border-box; overflow: hidden; width: 20px; height: 20px; z-index: 0; background-image: url(./images/none.png); background-repeat: no-repeat; background-size: contain;">
+              </div>
+              moon
+            </div>
+          </label>
+        </div>
+
+      </div>
     </div>
   </div>
-
 
   <!--画像化？(おそらく必要ないのでコメントアウト)-->
   <!-- <div
