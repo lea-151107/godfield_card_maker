@@ -5,7 +5,7 @@
 
 ## 本家様
 - [GODFIELD](https://godfield.net/)
-- [X: グウジ様](https://x.com/guuji)
+- [X: @guuji](https://x.com/guuji)
 
 ## 以下のライブラリを使用しています
 - [dom-to-image](https://github.com/tsayen/dom-to-image) (MIT License)
